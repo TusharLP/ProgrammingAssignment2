@@ -1,7 +1,17 @@
-## Creating a cache function for the inverse of a matrix taking advantage of the 
-## scoping rules of R
+### Programming Assignment 2
+## In this assignment I create two main functions:
+## (1) makeCacheMatrix: creates a special matrix object
+## that can cache its inverse
+## (2) cacheSolve: computes the inverse of the matrix returned 
+## by makeCacheMatrix. Retrieves the inverse from the cache 
+## if it has been aleady calculated and the original matrix has not changed
 
-## Cache function to store inverse matrix
+## makeCacheMatrix defines a set of functions and returns them
+## to the parent environment as a list:
+## (1) set() assigns the input value to x
+## (2) get() retrieves the value of x
+## (3) setinverse() assigns the input value to the inverse object (inv)
+## (4) getinverse() retrieves the value of the inverse object (inv)
 
 makeCacheMatrix <- function(x = matrix()) {
   inv <- NULL
@@ -18,8 +28,8 @@ makeCacheMatrix <- function(x = matrix()) {
 }
 
 
-## Function to get the inverse from chache function or else finding the inverse 
-## and storing it in chache function
+## cacheSolve() gets the inverse from chache function or else finds the inverse 
+## and stores it in chache function
 
 cacheSolve <- function(x, ...) {
         ## Return a matrix that is the inverse of 'x'
